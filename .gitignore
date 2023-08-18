@@ -140,3 +140,6 @@ models/
 # Notebooks
 *.ipynb
 *.md
+
+# Set up for Collab file
+setup_for_collab.txt
