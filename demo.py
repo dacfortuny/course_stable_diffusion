@@ -6,7 +6,7 @@
 #       extension: .py
 #       format_name: light
 #       format_version: '1.5'
-#       jupytext_version: 1.15.0
+#       jupytext_version: 1.15.2
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -23,7 +23,12 @@ from torch import autocast
 # # Settings
 
 PRETRAINED_MODEL = "runwayml/stable-diffusion-v1-5"
-DEVICE = "cpu"
+
+if torch.cuda.is_available():
+    DEVICE = "cuda"
+else:
+    DEVICE = "cpu"
+DEVICE
 
 # # Model
 
@@ -40,6 +45,7 @@ def generate_image(prompt, device=DEVICE):
         output = model(prompt) 
     image = output.images[0]
     image.show()
+    display(image)
 
 
 # # Demo
