@@ -130,6 +130,7 @@ dmypy.json
 
 # Other
 .idea/
+.DS_Store
 
 # Data
 data/
